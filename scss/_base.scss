@@ -1,0 +1,58 @@
+main {
+  .btns__container {
+    width: fit-content;
+  }
+
+  .registro__form {
+    .btn__crear-usuario {
+      width: fit-content;
+      height: fit-content;
+    }
+  }
+
+  .ingreso__form {
+    .btn__iniciar-sesion {
+      width: fit-content;
+      height: fit-content;
+    }
+  }
+
+  .chat__container {
+    width: 100%;
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+
+    .messages__container {
+      width: fit-content;
+      .message {
+        border: 1px solid;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+
+        .username__text {
+          font-weight: 500;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .send-message__form {
+      position: fixed;
+      bottom: 0%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      textarea {
+        width: 30rem;
+      }
+
+      .btn__send-message {
+        width: fit-content;
+      }
+    }
+  }
+}
+
+// .btn {
+//   width: fit-content;
+// }

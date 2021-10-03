@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Message App</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="text-center mb-5">JavaScript Message App</h1>
+    </header>
+
+    <main class="container">
+      <section class="btns__container m-auto mb-3">
+        <button class="btn btn-outline-primary mx-3">
+          Crear nuevo usuario
+        </button>
+        <button class="btn btn-outline-primary mx-3">Iniciar sesión</button>
+      </section>
+
+      <!-- forms de crear usuario e ingresar -->
+      <section class="forms__container justify-content-center row m-auto">
+        <form class="registro__form row col-6">
+          <div class="form-floating mb-3 col-6">
+            <input
+              type="text"
+              class="form-control"
+              id="nameRegistro"
+              placeholder="Nombre"
+            />
+            <label for="nameRegistro">Nombre</label>
+          </div>
+
+          <div class="form-floating mb-3 col-6">
+            <input
+              type="text"
+              class="form-control"
+              id="lastNameRegistro"
+              placeholder="Apellido"
+            />
+            <label for="lastNameRegistro">Apellido</label>
+          </div>
+
+          <div class="form-floating mb-3 col-12">
+            <input
+              type="text"
+              class="form-control"
+              id="userNameRegistro"
+              placeholder="Nombre de usuario"
+            />
+            <label for="userNameRegistro">Nombre de usuario</label>
+          </div>
+
+          <div class="form-floating mb-3 col-12">
+            <input
+              type="email"
+              class="form-control"
+              id="emailRegistro"
+              placeholder="Email"
+            />
+            <label for="emailRegistro">Email</label>
+          </div>
+
+          <div class="form-floating mb-3 col-12">
+            <input
+              type="password"
+              class="form-control"
+              id="passwordRegistro"
+              placeholder="Contraseña (evite poner una real)"
+            />
+            <label for="passwordRegistro"
+              >Contraseña (evite poner una real)</label
+            >
+          </div>
+
+          <button
+            type="submit"
+            class="btn__crear-usuario btn btn-outline-primary m-auto"
+          >
+            Crear usuario
+          </button>
+        </form>
+
+        <form class="ingreso__form row col-6">
+          <div class="form-floating mb-3 col-12">
+            <input
+              type="email"
+              class="form-control"
+              id="emailIngreso"
+              placeholder="Email"
+            />
+            <label for="emailIngreso">Email</label>
+          </div>
+
+          <div class="form-floating mb-3 col-12">
+            <input
+              type="password"
+              class="form-control"
+              id="passwordIngreso"
+              placeholder="Contraseña"
+            />
+            <label for="passwordIngreso">Contraseña</label>
+          </div>
+
+          <button
+            type="submit"
+            class="btn__iniciar-sesion btn btn-outline-primary m-auto"
+          >
+            Iniciar sesión
+          </button>
+        </form>
+      </section>
+
+      <br /><br /><br />
+
+      <section class="chat__container">
+        <section class="messages__container">
+          <div class="message">
+            <p class="username__text m-0">username</p>
+            <p class="message__text m-0">Mensaje</p>
+          </div>
+        </section>
+
+        <form class="send-message__form d-flex flex-column">
+          <div class="form-floating">
+            <textarea
+              class="form-control"
+              placeholder="Escriba su mensaje aqui..."
+              id="messageTextarea"
+              required
+            ></textarea>
+            <label for="messageTextarea">Escriba su mensaje aqui...</label>
+          </div>
+
+          <button
+            type="submit"
+            class="m-auto btn__send-message btn btn-success"
+          >
+            Enviar
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
