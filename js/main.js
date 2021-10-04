@@ -65,11 +65,9 @@ function getJSON() {
   $.get(Users, (respuesta, estado) => {
     if (estado === "success") {
       for (let user of respuesta) {
-        let id = 1;
-
         allUsers.push(
           new User(
-            id,
+            user.id,
             user.name,
             user.lastName,
             user.userName,
@@ -77,8 +75,7 @@ function getJSON() {
             user.password
           )
         );
-        console.log(allUsers);
-        id++;
+        // console.log(allUsers);
       }
     }
   });
@@ -90,7 +87,7 @@ function getJSON() {
         allMessages.push(
           new Message(mensaje.email, mensaje.userName, mensaje.message)
         );
-        console.log(allMessages);
+        // console.log(allMessages);
       }
     }
   });
@@ -137,7 +134,7 @@ function newUser() {
     } else {
       // creo objeto User
       let newUser = new User(
-        buscarIDMayor() + 1,
+        buscarIDMayor(),
         nameRegistro,
         lastNameRegistro,
         userNameRegistro,
@@ -228,9 +225,11 @@ function iniciarSesion() {
 
 // -----busca el id mayor de todos los usuarios para poder asignarle +1 a un nuevo usuario-----
 function buscarIDMayor() {
-  for (let i = 0; i <= allUsers.length; i++) {
-    return Math.max(allUsers[i].id);
-  }
+  let usersID = [];
+
+  allUsers.forEach((user) => usersID.push(user.id));
+
+  return Math.max(...usersID) + 1;
 }
 
 // console.log(

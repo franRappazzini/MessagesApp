@@ -1,3 +1,9 @@
+header {
+  h1 {
+    margin-bottom: 3rem;
+  }
+}
+
 main {
   .bienvenida__container {
     .aviso__contrasena {
@@ -23,6 +29,7 @@ main {
 
   .chat__container {
     width: 100%;
+    margin: auto;
     background-color: rgb(238, 238, 238);
     border-radius: 10px;
 
@@ -42,14 +49,12 @@ main {
 
     .send-message__form {
       position: fixed;
-      bottom: 0%;
+      bottom: 0vh;
       left: 50%;
       transform: translate(-50%, -50%);
 
-      textarea {
+      input {
         width: 30rem;
-        resize: none;
-        margin-bottom: 0.5rem;
       }
 
       .btn__send-message {
@@ -73,12 +78,23 @@ main {
 
 footer {
   margin-top: 2rem;
+  margin-bottom: 4rem;
 }
 
 @media only screen and (max-width: 576px) {
+  header {
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    aside {
+      margin-bottom: 1rem;
+    }
+  }
+
   main .chat__container {
     .send-message__form {
-      textarea {
+      input {
         width: 15rem;
       }
     }

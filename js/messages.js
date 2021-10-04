@@ -96,7 +96,7 @@ function sendMessages() {
     $("#messageForm").val("");
   });
 
-  sendMessageWithEnterKey();
+  // sendMessageWithEnterKey();
 }
 
 // -----enviar mensaje presionando tecla enter-----
@@ -216,3 +216,9 @@ function verUser() {
 
     <p class="m-0">${userLocalStorage.userName}</p>`);
 }
+
+// para mostar ultimos 10 mensajes
+let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+let numerosMayores = numeros.slice(-10);
+
+console.log(numerosMayores);

@@ -10,12 +10,14 @@
   </head>
   <body>
     <header class="row container m-auto">
-      <h1 class="col-10 offset-1 text-center my-5">JavaScript Message App</h1>
+      <h1 class="col-md-10 col-12 offset-md-1 text-center mt-5">
+        JavaScript Message App
+      </h1>
 
       <aside
         class="
           header__user
-          col-1
+          col-12 col-md-1
           d-flex
           flex-column
           align-items-center
@@ -36,21 +38,21 @@
         </section>
 
         <form class="send-message__form d-flex flex-column">
-          <textarea
+          <input
+            type="text"
             class="form-control"
             placeholder="Escriba su mensaje aqui..."
             id="messageForm"
             required
-            rows="2"
             autofocus
-          ></textarea>
+          />
 
-          <button
+          <!-- <button
             type="submit"
             class="m-auto btn__send-message btn btn-success"
           >
             Enviar
-          </button>
+          </button> -->
         </form>
       </section>
 
