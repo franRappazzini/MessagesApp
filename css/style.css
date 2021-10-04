@@ -10640,16 +10640,16 @@ fieldset:disabled .btn {
   }
 }
 
-main .btns__container {
-  width: fit-content;
+main .bienvenida__container .aviso__contrasena {
+  font-size: 12px;
 }
 
-main .registro__form .btn__crear-usuario {
+main .forms__container .registro__form .btn__crear-usuario {
   width: fit-content;
   height: fit-content;
 }
 
-main .ingreso__form .btn__iniciar-sesion {
+main .forms__container .ingreso__form .btn__iniciar-sesion {
   width: fit-content;
   height: fit-content;
 }
@@ -10665,28 +10665,39 @@ main .chat__container .messages__container {
 }
 
 main .chat__container .messages__container .message {
-  border: 1px solid;
-  border-radius: 10px;
+  border-top: 1px solid;
   margin-bottom: 1rem;
 }
 
 main .chat__container .messages__container .message .username__text {
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 main .chat__container .send-message__form {
   position: fixed;
-  bottom: 0%;
+  bottom: 5%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 main .chat__container .send-message__form textarea {
   width: 30rem;
+  resize: none;
 }
 
 main .chat__container .send-message__form .btn__send-message {
   width: fit-content;
+}
+
+main .alert__sesion .alert {
+  width: fit-content;
+}
+
+footer {
+  position: fixed;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 /*# sourceMappingURL=style.css.map */

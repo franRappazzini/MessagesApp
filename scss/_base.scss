@@ -1,19 +1,23 @@
 main {
-  .btns__container {
-    width: fit-content;
-  }
-
-  .registro__form {
-    .btn__crear-usuario {
-      width: fit-content;
-      height: fit-content;
+  .bienvenida__container {
+    .aviso__contrasena {
+      font-size: 12px;
     }
   }
 
-  .ingreso__form {
-    .btn__iniciar-sesion {
-      width: fit-content;
-      height: fit-content;
+  .forms__container {
+    .registro__form {
+      .btn__crear-usuario {
+        width: fit-content;
+        height: fit-content;
+      }
+    }
+
+    .ingreso__form {
+      .btn__iniciar-sesion {
+        width: fit-content;
+        height: fit-content;
+      }
     }
   }
 
@@ -24,26 +28,27 @@ main {
 
     .messages__container {
       width: fit-content;
+
       .message {
-        border: 1px solid;
-        border-radius: 10px;
+        border-top: 1px solid;
         margin-bottom: 1rem;
 
         .username__text {
-          font-weight: 500;
-          font-size: 12px;
+          font-weight: 700;
+          font-size: 14px;
         }
       }
     }
 
     .send-message__form {
       position: fixed;
-      bottom: 0%;
+      bottom: 5%;
       left: 50%;
       transform: translate(-50%, -50%);
 
       textarea {
         width: 30rem;
+        resize: none;
       }
 
       .btn__send-message {
@@ -51,6 +56,25 @@ main {
       }
     }
   }
+
+  .alert__sesion {
+    .alert {
+      width: fit-content;
+    }
+  }
+
+  .alert__sesion--message {
+    .alert {
+      width: fit-content;
+    }
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 // .btn {
