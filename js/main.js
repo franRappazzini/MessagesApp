@@ -12,7 +12,7 @@ $(() => {
 });
 
 const Users = "https://api.jsonbin.io/b/6158ba66aa02be1d44530a03/latest";
-const Messages = "https://api.jsonbin.io/b/6158bb13aa02be1d44530a48/latest";
+const Messages = "https://api.jsonbin.io/b/6158b517aa02be1d445307e7/latest"; //cambiar
 // var para ingresar todos los datos obtenidos de los json
 let allUsers = [];
 let allMessages = [];
@@ -107,16 +107,6 @@ function newUser() {
     let emailRegistro = $("#emailRegistro").val();
     let passwordRegistro = $("#passwordRegistro").val();
 
-    // creo objeto User
-    let newUser = new User(
-      buscarIDMayor() + 1,
-      nameRegistro,
-      lastNameRegistro,
-      userNameRegistro,
-      emailRegistro,
-      passwordRegistro
-    );
-
     // comprueba que no haya un mismo mail o nombre de usuario registrado
     let searchUserData = allUsers.findIndex(
       (user) =>
@@ -145,18 +135,28 @@ function newUser() {
         $(".alert__sesion .alert").remove();
       }, 4000);
     } else {
-      // $.ajax({
-      //   url: "https://api.jsonbin.io/b/6158ba66aa02be1d44530a03",
-      //   contentType: "application/json",
-      //   method: "PUT",
-      //   // XMasterKey: "$2b$10$qH15jVVrZx5IdUwzpCr5hOTNWz.4Tp.zkCRLbq/rGD5TSdkjh4eIq",
-      //   data: JSON.stringify(newUser),
-      // })
-      //   .done(() => console.log("SUCCESS"))
-      //   .fail((msg) => console.log(`Error: ${msg}`))
-      //   .always((msg) => console.log(`Always: ${msg}`));
+      // creo objeto User
+      let newUser = new User(
+        buscarIDMayor() + 1,
+        nameRegistro,
+        lastNameRegistro,
+        userNameRegistro,
+        emailRegistro,
+        passwordRegistro
+      );
 
-      // window.location.reload();
+      // nuevo array para agregar el nuevo usuario
+      let concatUsers = allUsers.concat(newUser);
+
+      $.ajax({
+        url: "https://api.jsonbin.io/b/6158ba66aa02be1d44530a03",
+        contentType: "application/json",
+        method: "PUT",
+        data: JSON.stringify(concatUsers),
+      })
+        .done(() => console.log("SUCCESS"))
+        .fail((err) => console.log(`Error: ${err}`))
+        .always((msg) => console.log(`Always: ${msg}`));
 
       $(".registro__form").hide();
 
@@ -174,10 +174,12 @@ function newUser() {
           <div>Felicidades. Usuario creado con exito!</div>
         </div>`);
 
-      // espera 3" y elimina el aviso
+      // espera 2" y elimina el aviso
       setTimeout(() => {
         $(".alert__sesion .alert").remove();
-      }, 3000);
+        getJSON();
+        $("#iniciarSesion").click();
+      }, 2000);
     }
   });
 }

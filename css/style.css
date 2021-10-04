@@ -10676,7 +10676,7 @@ main .chat__container .messages__container .message .username__text {
 
 main .chat__container .send-message__form {
   position: fixed;
-  bottom: 5%;
+  bottom: 0%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -10684,6 +10684,7 @@ main .chat__container .send-message__form {
 main .chat__container .send-message__form textarea {
   width: 30rem;
   resize: none;
+  margin-bottom: 0.5rem;
 }
 
 main .chat__container .send-message__form .btn__send-message {
@@ -10694,10 +10695,17 @@ main .alert__sesion .alert {
   width: fit-content;
 }
 
+main .alert__sesion--message .alert {
+  width: fit-content;
+}
+
 footer {
-  position: fixed;
-  bottom: 0%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: 2rem;
+}
+
+@media only screen and (max-width: 576px) {
+  main .chat__container .send-message__form textarea {
+    width: 15rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */

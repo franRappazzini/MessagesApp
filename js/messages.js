@@ -28,7 +28,8 @@ function sendMessages() {
 
     console.log(messageForm);
 
-    if (userLocalStorage != null) {
+    // compruebo que userLocalStorage exista
+    if (userLocalStorage) {
       // creo objeto Message
       let newMessage = new Message(
         userLocalStorage.email,
@@ -37,60 +38,40 @@ function sendMessages() {
       );
       console.log(newMessage);
 
-      // compruebo que exista nombre de usuario (por las dudas)
-      if (userLocalStorage.userName != null) {
-        /**
-         * el url no es el original
-         */
-        // envio Message
-        $.ajax({
-          url: "https://api.jsonbin.io/b/6158b517aa02be1d445307e7",
-          contentType: "application/json",
-          method: "PUT",
-          data: JSON.stringify(newMessage),
-        })
-          .done(() => console.log("SUCCESS"))
-          .fail((err) => console.log(`Error: ${err}`))
-          .always((msg) => console.log(`Always: ${msg}`));
+      // nuevo array para agregar el nuevo mensaje
+      let concatMessages = allMessages.concat(newMessage);
+      /**
+       * el url no es el original
+       */
+      // envio Message
+      $.ajax({
+        url: "https://api.jsonbin.io/b/6158b517aa02be1d445307e7",
+        contentType: "application/json",
+        method: "PUT",
+        data: JSON.stringify(concatMessages),
+      })
+        .done(() => console.log("SUCCESS"))
+        .fail((err) => console.log(`Error: ${err}`))
+        .always((msg) => console.log(`Always: ${msg}`));
 
-        $(".alert__sesion--message").append(`
-          <div class="alert alert-success d-flex align-items-center" role="alert">
-            <svg
-              class="bi flex-shrink-0 me-2"
-              width="24"
-              height="24"
-              role="img"
-              aria-label="Success:"
-            >
-              <use xlink:href="#check-circle-fill" />
-            </svg>
-            <div>Mensaje enviado con exito!</div>
-          </div>`);
+      $(".alert__sesion--message").append(`
+        <div class="alert alert-success d-flex align-items-center" role="alert">
+          <svg
+            class="bi flex-shrink-0 me-2"
+            width="24"
+            height="24"
+            role="img"
+            aria-label="Success:"
+          >
+            <use xlink:href="#check-circle-fill" />
+          </svg>
+          <div>Mensaje enviado con exito!</div>
+        </div>`);
 
-        // espera 2" y recarga la pagina
-        setTimeout(() => {
-          window.location.reload();
-        }, 1500);
-      } else {
-        $(".alert__sesion--message").append(`
-          <div class="alert alert-danger d-flex align-items-center" role="alert">
-            <svg
-              class="bi flex-shrink-0 me-2"
-              width="24"
-              height="24"
-              role="img"
-              aria-label="Danger:"
-            >
-              <use xlink:href="#exclamation-triangle-fill" />
-            </svg>
-            <div>Debes iniciar sesión para poder enviar mensajes.</div>
-          </div>`);
-
-        // espera 4" y elimina el aviso
-        setTimeout(() => {
-          window.location.href = "index.html";
-        }, 2500);
-      }
+      // espera 1" y recarga la pagina
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     } else {
       $(".alert__sesion--message").append(`
         <div class="alert alert-danger d-flex align-items-center" role="alert">
