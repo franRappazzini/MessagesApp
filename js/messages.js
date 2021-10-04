@@ -7,7 +7,7 @@ function showMessages() {
   setTimeout(() => {
     allMessages.forEach((mensaje) => {
       $(".messages__container").append(`
-        <div class="message mb-3">
+        <div class="message mb-3 ">
           <p class="username__text m-0">${mensaje.userName}</p>
           <p class="message__text m-0">${mensaje.message}</p>
         </div>`);
@@ -26,7 +26,7 @@ function sendMessages() {
 
     let messageForm = $("#messageForm").val();
 
-    console.log(messageForm);
+    // console.log(messageForm);
 
     // compruebo que userLocalStorage exista
     if (userLocalStorage) {
@@ -34,9 +34,10 @@ function sendMessages() {
       let newMessage = new Message(
         userLocalStorage.email,
         userLocalStorage.userName,
-        messageForm
+        messageForm,
+        userLocalStorage.color
       );
-      console.log(newMessage);
+      // console.log(newMessage);
 
       // nuevo array para agregar el nuevo mensaje
       let concatMessages = allMessages.concat(newMessage);
@@ -45,7 +46,7 @@ function sendMessages() {
        */
       // envio Message
       $.ajax({
-        url: "https://api.jsonbin.io/b/6158b517aa02be1d445307e7",
+        url: "https://api.jsonbin.io/b/615b8c6caa02be1d44542064",
         contentType: "application/json",
         method: "PUT",
         data: JSON.stringify(concatMessages),
@@ -95,23 +96,13 @@ function sendMessages() {
 
     $("#messageForm").val("");
   });
-
-  // sendMessageWithEnterKey();
-}
-
-// -----enviar mensaje presionando tecla enter-----
-function sendMessageWithEnterKey() {
-  $("#messageForm").keypress((e) => {
-    if (e.keyCode == 13) {
-      $(".send-message__form").submit();
-    }
-  });
 }
 
 // -----visualiza el usuario en el header-----
 function verUser() {
   let userLocalStorage = JSON.parse(localStorage.getItem("UserApp"));
 
+  console.log(userLocalStorage);
   $(".header__user").append(`
     <svg
       id="Capa_1"
@@ -125,7 +116,7 @@ function verUser() {
         <g>
           <path
             d="m456.291 415.426c34.862-43.74 55.709-99.145 55.709-159.426 0-141.385-114.615-256-256-256s-256 114.615-256 256c0 60.281 20.847 115.686 55.709 159.426z"
-            fill="#85faf4"
+            fill="${userLocalStorage.color}"
           />
         </g>
         <g>

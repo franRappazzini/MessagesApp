@@ -11,8 +11,8 @@ $(() => {
   verUser();
 });
 
-const Users = "https://api.jsonbin.io/b/6158ba66aa02be1d44530a03/latest";
-const Messages = "https://api.jsonbin.io/b/6158b517aa02be1d445307e7/latest"; //cambiar
+const Users = "https://api.jsonbin.io/b/615b8c97aa02be1d44542071/latest";
+const Messages = "https://api.jsonbin.io/b/615b8c6caa02be1d44542064/latest"; //cambiar
 // var para ingresar todos los datos obtenidos de los json
 let allUsers = [];
 let allMessages = [];
@@ -22,22 +22,23 @@ let allMessages = [];
  */
 
 class User {
-  constructor(id, name, lastName, userName, email, password, message) {
+  constructor(id, name, lastName, userName, email, password, color) {
     this.id = id;
     this.name = name;
     this.lastName = lastName;
     this.userName = userName;
     this.email = email;
     this.password = password;
-    this.message = message;
+    this.color = color;
   }
 }
 
 class Message {
-  constructor(email, userName, message) {
+  constructor(email, userName, message, color) {
     this.email = email;
     this.userName = userName;
     this.message = message;
+    this.color = color;
   }
 }
 
@@ -72,10 +73,11 @@ function getJSON() {
             user.lastName,
             user.userName,
             user.email,
-            user.password
+            user.password,
+            user.color
           )
         );
-        // console.log(allUsers);
+        console.log(allUsers);
       }
     }
   });
@@ -85,14 +87,18 @@ function getJSON() {
     if (estado === "success") {
       for (let mensaje of respuesta) {
         allMessages.push(
-          new Message(mensaje.email, mensaje.userName, mensaje.message)
+          new Message(
+            mensaje.email,
+            mensaje.userName,
+            mensaje.message,
+            mensaje.color
+          )
         );
         // console.log(allMessages);
       }
     }
   });
 }
-
 // -----creacion de nuevo usuario-----
 function newUser() {
   $(".registro__form").submit((e) => {
@@ -103,6 +109,7 @@ function newUser() {
     let userNameRegistro = $("#userNameRegistro").val();
     let emailRegistro = $("#emailRegistro").val();
     let passwordRegistro = $("#passwordRegistro").val();
+    let colorPickerRegistro = $("#colorPickerInput").val();
 
     // comprueba que no haya un mismo mail o nombre de usuario registrado
     let searchUserData = allUsers.findIndex(
@@ -139,14 +146,15 @@ function newUser() {
         lastNameRegistro,
         userNameRegistro,
         emailRegistro,
-        passwordRegistro
+        passwordRegistro,
+        colorPickerRegistro
       );
 
       // nuevo array para agregar el nuevo usuario
       let concatUsers = allUsers.concat(newUser);
 
       $.ajax({
-        url: "https://api.jsonbin.io/b/6158ba66aa02be1d44530a03",
+        url: "https://api.jsonbin.io/b/615b8c97aa02be1d44542071",
         contentType: "application/json",
         method: "PUT",
         data: JSON.stringify(concatUsers),
@@ -199,6 +207,7 @@ function iniciarSesion() {
     if (searchEmail != -1 && searchPassword === passwordIngreso) {
       // guardo el usuario que inicia sesion en localStorage
       localStorage.setItem("UserApp", JSON.stringify(allUsers[searchEmail]));
+      console.log(allUsers[searchEmail]);
       window.location.href = "messages.html";
     } else {
       $(".alert__sesion").append(`
