@@ -28,7 +28,8 @@ main {
   }
 
   .chat__container {
-    width: 100%;
+    width: 70%;
+    max-width: 100%;
     margin: auto;
     background-color: rgb(238, 238, 238);
     border-radius: 10px;
@@ -43,6 +44,10 @@ main {
         .username__text {
           font-weight: 700;
           font-size: 14px;
+        }
+
+        .date__text {
+          font-size: 10px;
         }
       }
     }
@@ -78,6 +83,11 @@ main {
       width: fit-content;
     }
   }
+
+  // page 404
+  .error__404 {
+    font-size: 3rem;
+  }
 }
 
 footer {
@@ -98,6 +108,8 @@ footer {
 
   main {
     .chat__container {
+      width: 100%;
+
       .send-message__form {
         input {
           width: 20rem;

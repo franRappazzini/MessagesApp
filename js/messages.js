@@ -1,16 +1,61 @@
 /**
- * FUNCTIONS para 'messages.html'
+ * -----------FUNCTIONS para 'messages.html'-----------
  */
 
-// -----muestra todos los mensajes que existen-----
-function showMessages() {
-  setTimeout(() => {
-    allMessages.forEach((mensaje) => {
-      $(".messages__container").append(`
-        <div class="message mb-3 ">
+// -----checkboxs funcionales-----
+function checkboxMessages() {
+  $("#allMessagesCheckbox").click(() => showAllMessages());
+  $("#tenMessagesCheckbox").click(() => showTenMessages());
+}
+
+// -----renderiza todos los mensajes que existen-----
+function showAllMessages() {
+  $(".messages__container").empty().append(`
+    <article class="message mb-3">
+      <span class="d-flex justify-content-between align-items-end">
+        <p class="username__text m-0" style="color: #0d6efd">rappanui</p>
+        <p class="date__text m-0">(5/10/2021)</p>
+      </span>
+      <p class="message__text m-0">Hola, bienvenido a mi app!</p>
+    </article>`);
+
+  allMessages.forEach((mensaje) => {
+    $(".messages__container").append(`
+      <article class="message mb-3">
+        <span class="d-flex justify-content-between align-items-end">
           <p class="username__text m-0" style="color: ${mensaje.color}">${mensaje.userName}</p>
+          <p class="date__text m-0">(${mensaje.date})</p>
+        </span>
+        <p class="message__text m-0">${mensaje.message}</p>
+      </article>`);
+  });
+
+  console.log(allMessages);
+}
+
+// -----renderiza los ultimos 10 mensajes-----
+function showTenMessages() {
+  $(".messages__container").empty().append(`
+    <article class="message mb-3">
+      <span class="d-flex justify-content-between align-items-end">
+        <p class="username__text m-0" style="color: #0d6efd">rappanui</p>
+        <p class="date__text m-0">(5/10/2021)</p>
+      </span>
+      <p class="message__text m-0">Hola, bienvenido a mi app!</p>
+    </article>`);
+
+  setTimeout(() => {
+    let ultimosDiezMensajes = [...allMessages].splice(-10);
+
+    ultimosDiezMensajes.forEach((mensaje) => {
+      $(".messages__container").append(`
+        <article class="message mb-3">
+          <span class="d-flex justify-content-between align-items-end">
+            <p class="username__text m-0" style="color: ${mensaje.color}">${mensaje.userName}</p>
+            <p class="date__text m-0">(${mensaje.date})</p>
+          </span>
           <p class="message__text m-0">${mensaje.message}</p>
-        </div>`);
+        </article>`);
     });
   }, 1000);
 }
@@ -32,22 +77,25 @@ function sendMessages() {
         userLocalStorage.email,
         userLocalStorage.userName,
         messageForm,
-        userLocalStorage.color
+        userLocalStorage.color,
+        today()
       );
+
+      console.log(newMessage);
 
       // nuevo array para agregar el nuevo mensaje
       let concatMessages = allMessages.concat(newMessage);
 
       // envio Message
-      // $.ajax({
-      //   url: "https://api.jsonbin.io/b/615b9758aa02be1d4454233d",
-      //   contentType: "application/json",
-      //   method: "PUT",
-      //   data: JSON.stringify(concatMessages),
-      // })
-      //   .done(() => console.log("SUCCESS"))
-      //   .fail((err) => console.log(`Error: ${err}`))
-      //   .always((msg) => console.log(`Always: ${msg}`));
+      $.ajax({
+        url: "https://api.jsonbin.io/b/615c512aaa02be1d44548b30",
+        contentType: "application/json",
+        method: "PUT",
+        data: JSON.stringify(concatMessages),
+      })
+        .done(() => console.log("SUCCESS"))
+        .fail((err) => console.log(`Error: ${err}`))
+        .always((msg) => console.log(`Always: ${msg}`));
 
       $(".alert__sesion--message").append(`
         <div class="alert alert-success d-flex align-items-center" role="alert">
@@ -92,7 +140,7 @@ function sendMessages() {
   });
 }
 
-// -----visualiza el usuario en el header-----
+// -----renderiza el usuario en el header-----
 function verUser() {
   let userLocalStorage = JSON.parse(localStorage.getItem("UserApp"));
 
@@ -211,8 +259,9 @@ function verUser() {
     </ul>`);
 }
 
-// para mostar ultimos 10 mensajes
-let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-let numerosMayores = numeros.slice(-10);
+// -----toma el dia actual para el mensaje-----
+function today() {
+  let date = new Date();
 
-console.log(numerosMayores);
+  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+}

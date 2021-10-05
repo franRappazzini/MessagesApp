@@ -6,14 +6,16 @@ $(() => {
   iniciarSesion();
 
   // message.js
-  showMessages();
+  showTenMessages();
   sendMessages();
   verUser();
+  checkboxMessages();
 });
 
 const Users = "https://api.jsonbin.io/b/615b91fd4a82881d6c5ae0b4/latest";
-const Messages = "https://api.jsonbin.io/b/615c512aaa02be1d44548b30/latest"; //cambiar
-// var para ingresar todos los datos obtenidos de los json
+const Messages = "https://api.jsonbin.io/b/615c512aaa02be1d44548b30/latest";
+
+// vars para ingresar todos los datos obtenidos de los json
 let allUsers = [];
 let allMessages = [];
 
@@ -34,11 +36,12 @@ class User {
 }
 
 class Message {
-  constructor(email, userName, message, color) {
+  constructor(email, userName, message, color, date) {
     this.email = email;
     this.userName = userName;
     this.message = message;
     this.color = color;
+    this.date = date;
   }
 }
 
@@ -46,6 +49,7 @@ class Message {
  * -----------FUNCTIONS-----------
  */
 
+// -----funciones de btns crear usuario e iniciar sesion-----
 function mainBtns() {
   $("#crearUsuario").click(() => {
     $(".ingreso__form").hide();
@@ -90,13 +94,15 @@ function getJSON() {
             mensaje.email,
             mensaje.userName,
             mensaje.message,
-            mensaje.color
+            mensaje.color,
+            mensaje.date
           )
         );
       }
     }
   });
 }
+
 // -----creacion de nuevo usuario-----
 function newUser() {
   $(".registro__form").submit((e) => {
@@ -259,13 +265,13 @@ function buscarIDMayor() {
   return Math.max(...usersID) + 1;
 }
 
-// console.log(
-//   "%c Welcome to my App!!",
-//   `font-weight: bold;
-//     font-size: 50px;
-//     color: #FACA15;
-//     text-shadow: 3px 3px 0 #E64980,
-//                 6px 6px 0 #31C48D,
-//                 9px 9px 0 #FF8A4C,
-//                 12px 12px 0 #9061F9`
-// );
+console.log(
+  "%c Welcome to my App!!",
+  `font-weight: bold;
+    font-size: 50px;
+    color: #FACA15;
+    text-shadow: 3px 3px 0 #E64980,
+                6px 6px 0 #31C48D,
+                9px 9px 0 #FF8A4C,
+                12px 12px 0 #9061F9`
+);

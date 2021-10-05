@@ -17,7 +17,8 @@ main .forms__container .ingreso__form .btn__iniciar-sesion {
 }
 
 main .chat__container {
-  width: 100%;
+  width: 70%;
+  max-width: 100%;
   margin: auto;
   background-color: #eeeeee;
   border-radius: 10px;
@@ -35,6 +36,10 @@ main .chat__container .messages__container .message {
 main .chat__container .messages__container .message .username__text {
   font-weight: 700;
   font-size: 14px;
+}
+
+main .chat__container .messages__container .message .date__text {
+  font-size: 10px;
 }
 
 main .chat__container .send-message__form {
@@ -67,6 +72,10 @@ main .alert__sesion--message .alert {
   width: fit-content;
 }
 
+main .error__404 {
+  font-size: 3rem;
+}
+
 footer {
   margin-top: 2rem;
   margin-bottom: 4rem;
@@ -78,6 +87,9 @@ footer {
   }
   header aside {
     margin-bottom: 1rem;
+  }
+  main .chat__container {
+    width: 100%;
   }
   main .chat__container .send-message__form input {
     width: 20rem;
