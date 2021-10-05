@@ -13,8 +13,7 @@ Aplicacion de mensajes basica creada con JavaScript, HTML y CSS.
 * Git
 
 
-
-### 🏼[Proba la App aca]👉🏼(https://franrappazzini.github.io/MessagesApp/)👈🏼
+### 👉🏼[Proba la app](https://franrappazzini.github.io/MessagesApp/)👈🏼
 
 [Mi GitHub](https://github.com/franRappazzini)
 
