@@ -3,10 +3,10 @@ Aplicacion de mensajes basica creada con JavaScript, HTML y CSS.
 
 #### Skill utilizados:
 * jQuery
-* Sass
-* Bootstrap
 * AJAX
 * Consumo de API
+* Sass
+* Bootstrap
 * BEM
 * SEO
 * Npm
