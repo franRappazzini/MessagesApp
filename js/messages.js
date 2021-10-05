@@ -207,9 +207,7 @@ function verUser() {
     <p class="m-0">${userLocalStorage.userName}</p>
     
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
+      <li><a href="index.html" class="dropdown-item link-danger text-center">Cerrar sesión</a></li>
     </ul>`);
 }
 
