@@ -11,8 +11,8 @@ $(() => {
   verUser();
 });
 
-const Users = "https://api.jsonbin.io/b/615b8c97aa02be1d44542071/latest";
-const Messages = "https://api.jsonbin.io/b/615b8c6caa02be1d44542064/latest"; //cambiar
+const Users = "https://api.jsonbin.io/b/615b91fd4a82881d6c5ae0b4/latest";
+const Messages = "https://api.jsonbin.io/b/615b9758aa02be1d4454233d/latest"; //cambiar
 // var para ingresar todos los datos obtenidos de los json
 let allUsers = [];
 let allMessages = [];
@@ -77,7 +77,6 @@ function getJSON() {
             user.color
           )
         );
-        console.log(allUsers);
       }
     }
   });
@@ -94,7 +93,6 @@ function getJSON() {
             mensaje.color
           )
         );
-        // console.log(allMessages);
       }
     }
   });
@@ -154,7 +152,7 @@ function newUser() {
       let concatUsers = allUsers.concat(newUser);
 
       $.ajax({
-        url: "https://api.jsonbin.io/b/615b8c97aa02be1d44542071",
+        url: "https://api.jsonbin.io/b/615b91fd4a82881d6c5ae0b4",
         contentType: "application/json",
         method: "PUT",
         data: JSON.stringify(concatUsers),
@@ -202,12 +200,10 @@ function iniciarSesion() {
     // busco su contrasena
     let searchPassword = allUsers[searchEmail].password;
 
-    console.log(searchEmail, searchPassword);
-
     if (searchEmail != -1 && searchPassword === passwordIngreso) {
       // guardo el usuario que inicia sesion en localStorage
       localStorage.setItem("UserApp", JSON.stringify(allUsers[searchEmail]));
-      console.log(allUsers[searchEmail]);
+      // lo envio a la pagina de mensajes
       window.location.href = "messages.html";
     } else {
       $(".alert__sesion").append(`

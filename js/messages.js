@@ -8,7 +8,7 @@ function showMessages() {
     allMessages.forEach((mensaje) => {
       $(".messages__container").append(`
         <div class="message mb-3 ">
-          <p class="username__text m-0">${mensaje.userName}</p>
+          <p class="username__text m-0" style="color: ${mensaje.color}">${mensaje.userName}</p>
           <p class="message__text m-0">${mensaje.message}</p>
         </div>`);
     });
@@ -19,14 +19,11 @@ function showMessages() {
 function sendMessages() {
   // tomo los datos del usuario que inicio sesion
   let userLocalStorage = JSON.parse(localStorage.getItem("UserApp"));
-  console.log(userLocalStorage);
 
   $(".send-message__form").submit((e) => {
     e.preventDefault();
 
     let messageForm = $("#messageForm").val();
-
-    // console.log(messageForm);
 
     // compruebo que userLocalStorage exista
     if (userLocalStorage) {
@@ -37,16 +34,13 @@ function sendMessages() {
         messageForm,
         userLocalStorage.color
       );
-      // console.log(newMessage);
 
       // nuevo array para agregar el nuevo mensaje
       let concatMessages = allMessages.concat(newMessage);
-      /**
-       * el url no es el original
-       */
+
       // envio Message
       $.ajax({
-        url: "https://api.jsonbin.io/b/615b8c6caa02be1d44542064",
+        url: "https://api.jsonbin.io/b/615b9758aa02be1d4454233d",
         contentType: "application/json",
         method: "PUT",
         data: JSON.stringify(concatMessages),
@@ -68,6 +62,8 @@ function sendMessages() {
           </svg>
           <div>Mensaje enviado con exito!</div>
         </div>`);
+
+      $("#messageForm").val("");
 
       // espera 1" y recarga la pagina
       setTimeout(() => {
@@ -93,8 +89,6 @@ function sendMessages() {
         window.location.href = "index.html";
       }, 2500);
     }
-
-    $("#messageForm").val("");
   });
 }
 
@@ -103,6 +97,7 @@ function verUser() {
   let userLocalStorage = JSON.parse(localStorage.getItem("UserApp"));
 
   console.log(userLocalStorage);
+
   $(".header__user").append(`
     <svg
       id="Capa_1"
