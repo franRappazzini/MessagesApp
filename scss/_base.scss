@@ -70,6 +70,10 @@ main {
   }
 
   .alert__sesion--message {
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     .alert {
       width: fit-content;
     }
@@ -92,11 +96,16 @@ footer {
     }
   }
 
-  main .chat__container {
-    .send-message__form {
-      input {
-        width: 20rem;
+  main {
+    .chat__container {
+      .send-message__form {
+        input {
+          width: 20rem;
+        }
       }
+    }
+    .alert__sesion--message {
+      bottom: 0%;
     }
   }
 }

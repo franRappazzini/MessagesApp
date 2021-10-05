@@ -39,15 +39,15 @@ function sendMessages() {
       let concatMessages = allMessages.concat(newMessage);
 
       // envio Message
-      $.ajax({
-        url: "https://api.jsonbin.io/b/615b9758aa02be1d4454233d",
-        contentType: "application/json",
-        method: "PUT",
-        data: JSON.stringify(concatMessages),
-      })
-        .done(() => console.log("SUCCESS"))
-        .fail((err) => console.log(`Error: ${err}`))
-        .always((msg) => console.log(`Always: ${msg}`));
+      // $.ajax({
+      //   url: "https://api.jsonbin.io/b/615b9758aa02be1d4454233d",
+      //   contentType: "application/json",
+      //   method: "PUT",
+      //   data: JSON.stringify(concatMessages),
+      // })
+      //   .done(() => console.log("SUCCESS"))
+      //   .fail((err) => console.log(`Error: ${err}`))
+      //   .always((msg) => console.log(`Always: ${msg}`));
 
       $(".alert__sesion--message").append(`
         <div class="alert alert-success d-flex align-items-center" role="alert">
@@ -100,12 +100,16 @@ function verUser() {
 
   $(".header__user").append(`
     <svg
-      id="Capa_1"
+      id="dropdownMenuButton1"
       enable-background="new 0 0 512 512"
       height="40"
       width="40"
       viewBox="0 0 512 512"
       xmlns="http://www.w3.org/2000/svg"
+      class="dropdown-toggle"
+      type="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
     >
       <g>
         <g>
@@ -200,7 +204,13 @@ function verUser() {
       </g>
     </svg>
 
-    <p class="m-0">${userLocalStorage.userName}</p>`);
+    <p class="m-0">${userLocalStorage.userName}</p>
+    
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+      <li><a class="dropdown-item" href="#">Something else here</a></li>
+    </ul>`);
 }
 
 // para mostar ultimos 10 mensajes

@@ -12,7 +12,7 @@ $(() => {
 });
 
 const Users = "https://api.jsonbin.io/b/615b91fd4a82881d6c5ae0b4/latest";
-const Messages = "https://api.jsonbin.io/b/615b9758aa02be1d4454233d/latest"; //cambiar
+const Messages = "https://api.jsonbin.io/b/615c512aaa02be1d44548b30/latest"; //cambiar
 // var para ingresar todos los datos obtenidos de los json
 let allUsers = [];
 let allMessages = [];
@@ -197,14 +197,36 @@ function iniciarSesion() {
 
     // busco si el mail ingresado esta registrado
     let searchEmail = allUsers.findIndex((user) => user.email === emailIngreso);
-    // busco su contrasena
-    let searchPassword = allUsers[searchEmail].password;
 
-    if (searchEmail != -1 && searchPassword === passwordIngreso) {
-      // guardo el usuario que inicia sesion en localStorage
-      localStorage.setItem("UserApp", JSON.stringify(allUsers[searchEmail]));
-      // lo envio a la pagina de mensajes
-      window.location.href = "messages.html";
+    if (searchEmail != -1) {
+      // busco su contrasena (lo pongo aca y no fuera porque sino falla por no encontrar directamente el email)
+      let searchPassword = allUsers[searchEmail].password;
+
+      if (searchPassword === passwordIngreso) {
+        // guardo el usuario que inicia sesion en localStorage
+        localStorage.setItem("UserApp", JSON.stringify(allUsers[searchEmail]));
+        // lo envio a la pagina de mensajes
+        window.location.href = "messages.html";
+      } else {
+        $(".alert__sesion").append(`
+          <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <svg
+              class="bi flex-shrink-0 me-2"
+              width="24"
+              height="24"
+              role="img"
+              aria-label="Danger:"
+            >
+              <use xlink:href="#exclamation-triangle-fill" />
+            </svg>
+            <div>Datos ingresados incorrectos.</div>
+          </div>`);
+
+        // espera 3" y elimina el aviso
+        setTimeout(() => {
+          $(".alert__sesion .alert").remove();
+        }, 3000);
+      }
     } else {
       $(".alert__sesion").append(`
         <div class="alert alert-danger d-flex align-items-center" role="alert">
