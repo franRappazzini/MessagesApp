@@ -4,12 +4,14 @@ $(() => {
   getJSON();
   newUser();
   iniciarSesion();
+  verEstadisticas();
 
   // message.js
   showTenMessages();
   sendMessages();
   verUser();
   checkboxMessages();
+  clearLocalStorage();
 });
 
 const Users = "https://api.jsonbin.io/b/615b91fd4a82881d6c5ae0b4/latest";
@@ -53,14 +55,15 @@ class Message {
 function mainBtns() {
   $("#crearUsuario").click(() => {
     $(".ingreso__form").hide();
-    $(".bienvenida__container").hide();
+    $(".bienvenida__container, .estadisticas__container").hide();
     $(".registro__form").fadeIn();
   });
 
   $("#iniciarSesion").click(() => {
     $(".registro__form").hide();
-    $(".bienvenida__container").hide();
+    $(".bienvenida__container, .estadisticas__container").hide();
     $(".ingreso__form").fadeIn();
+    inicioSesionAutomatico();
   });
 }
 
@@ -256,6 +259,28 @@ function iniciarSesion() {
   });
 }
 
+// -----muestra las estadisticas reales de la app (cant de users y mensajes)-----
+function verEstadisticas() {
+  // pruebo fetch*
+  // usuarios
+  fetch("https://api.jsonbin.io/b/615b91fd4a82881d6c5ae0b4/latest")
+    .then((res) => res.json())
+    .then((data) => {
+      let usuarios = data;
+
+      $(".card__number").append(usuarios.length);
+    });
+
+  // mensajes
+  fetch("https://api.jsonbin.io/b/615c512aaa02be1d44548b30/latest")
+    .then((res) => res.json())
+    .then((data) => {
+      let mensajes = data;
+
+      $(".card__number--messages").append(mensajes.length);
+    });
+}
+
 // -----busca el id mayor de todos los usuarios para poder asignarle +1 a un nuevo usuario-----
 function buscarIDMayor() {
   let usersID = [];
@@ -265,13 +290,28 @@ function buscarIDMayor() {
   return Math.max(...usersID) + 1;
 }
 
-console.log(
-  "%c Welcome to my App!!",
-  `font-weight: bold;
-    font-size: 50px;
-    color: #FACA15;
-    text-shadow: 3px 3px 0 #E64980,
-                6px 6px 0 #31C48D,
-                9px 9px 0 #FF8A4C,
-                12px 12px 0 #9061F9`
-);
+// -----si existe el usuario en el localStorage inicia sesion sin poner datos-----
+function inicioSesionAutomatico() {
+  let userLocalStorage = JSON.parse(localStorage.getItem("UserApp"));
+
+  console.log(userLocalStorage);
+
+  let { email, password, userName, color } = userLocalStorage;
+
+  console.log(email, password, userName, color);
+
+  if (email && password && userName && color) {
+    window.location.href = "messages.html";
+  }
+}
+
+// console.log(
+//   "%c Welcome to my App!!",
+//   `font-weight: bold;
+//     font-size: 50px;
+//     color: #FACA15;
+//     text-shadow: 3px 3px 0 #E64980,
+//                 6px 6px 0 #31C48D,
+//                 9px 9px 0 #FF8A4C,
+//                 12px 12px 0 #9061F9`
+// );

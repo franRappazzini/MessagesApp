@@ -255,7 +255,8 @@ function verUser() {
     <p class="m-0">${userLocalStorage.userName}</p>
     
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a href="index.html" class="dropdown-item link-danger text-center">Cerrar sesión</a></li>
+      <li><a href="index.html" class="dropdown-item">Volver al inicio</a></li>
+      <li><a id="cerrarSesion" href="index.html" class="dropdown-item link-danger">Cerrar sesión</a></li>
     </ul>`);
 }
 
@@ -264,4 +265,9 @@ function today() {
   let date = new Date();
 
   return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+}
+
+// -----limpia el localStorage al cerrar la sesion-----
+function clearLocalStorage() {
+  $("#cerrarSesion").click(() => localStorage.clear());
 }

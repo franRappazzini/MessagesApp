@@ -16,6 +16,26 @@ main .forms__container .ingreso__form .btn__iniciar-sesion {
   height: fit-content;
 }
 
+main .estadisticas__container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+main .estadisticas__container .card {
+  width: 12rem;
+}
+
+main .estadisticas__container .card .card__number,
+main .estadisticas__container .card .card__number--messages {
+  font-size: 3rem;
+}
+
+main .checkbox__container {
+  display: flex;
+  justify-content: center;
+}
+
 main .chat__container {
   width: 70%;
   max-width: 100%;
@@ -87,6 +107,13 @@ footer {
   }
   header aside {
     margin-bottom: 1rem;
+  }
+  main .checkbox__container {
+    flex-direction: column;
+    align-items: center;
+  }
+  main .checkbox__container div {
+    margin-top: 0.5rem;
   }
   main .chat__container {
     width: 100%;

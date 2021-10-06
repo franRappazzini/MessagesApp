@@ -27,6 +27,25 @@ main {
     }
   }
 
+  .estadisticas__container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .card {
+      width: 12rem;
+      .card__number,
+      .card__number--messages {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  .checkbox__container {
+    display: flex;
+    justify-content: center;
+  }
+
   .chat__container {
     width: 70%;
     max-width: 100%;
@@ -107,6 +126,15 @@ footer {
   }
 
   main {
+    .checkbox__container {
+      flex-direction: column;
+      align-items: center;
+
+      div {
+        margin-top: 0.5rem;
+      }
+    }
+
     .chat__container {
       width: 100%;
 
@@ -121,7 +149,3 @@ footer {
     }
   }
 }
-
-// .btn {
-//   width: fit-content;
-// }
