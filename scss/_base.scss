@@ -51,14 +51,11 @@ main {
     max-width: 100%;
     margin: auto;
     background-color: rgb(238, 238, 238);
-    border-radius: 10px;
+    border-radius: 5px;
 
     .messages__container {
-      width: fit-content;
-
       .message {
-        border-top: 1px solid;
-        margin-bottom: 1rem;
+        background-color: rgb(238, 238, 238);
 
         .username__text {
           font-weight: 700;
@@ -149,3 +146,17 @@ footer {
     }
   }
 }
+
+.dark-mode-intenso {
+  background-color: #010409;
+}
+.dark-mode-suave {
+  background-color: #212529;
+}
+
+.dark-mode-light {
+  color: #ffffff;
+}
+
+// #212529  -- fuente
+// #eeeeee -- blanco

@@ -11,53 +11,58 @@ function checkboxMessages() {
 // -----renderiza todos los mensajes que existen-----
 function showAllMessages() {
   $(".messages__container").empty().append(`
-    <article class="message mb-3">
+    <li class="message list-group-item" >
       <span class="d-flex justify-content-between align-items-end">
         <p class="username__text m-0" style="color: #0d6efd">rappanui</p>
         <p class="date__text m-0">(5/10/2021)</p>
       </span>
       <p class="message__text m-0">Hola, bienvenido a mi app!</p>
-    </article>`);
+    </li>`);
 
   allMessages.forEach((mensaje) => {
     $(".messages__container").append(`
-      <article class="message mb-3">
+      <li class="message list-group-item" >
         <span class="d-flex justify-content-between align-items-end">
           <p class="username__text m-0" style="color: ${mensaje.color}">${mensaje.userName}</p>
           <p class="date__text m-0">(${mensaje.date})</p>
         </span>
         <p class="message__text m-0">${mensaje.message}</p>
-      </article>`);
+      </li>`);
   });
 
+  darkMode();
   console.log(allMessages);
 }
 
 // -----renderiza los ultimos 10 mensajes-----
 function showTenMessages() {
   $(".messages__container").empty().append(`
-    <article class="message mb-3">
+    <li class="message list-group-item" >
       <span class="d-flex justify-content-between align-items-end">
         <p class="username__text m-0" style="color: #0d6efd">rappanui</p>
         <p class="date__text m-0">(5/10/2021)</p>
       </span>
       <p class="message__text m-0">Hola, bienvenido a mi app!</p>
-    </article>`);
+    </li>`);
 
   setTimeout(() => {
     let ultimosDiezMensajes = [...allMessages].splice(-10);
 
     ultimosDiezMensajes.forEach((mensaje) => {
       $(".messages__container").append(`
-        <article class="message mb-3">
+        <li class="message list-group-item" >
           <span class="d-flex justify-content-between align-items-end">
             <p class="username__text m-0" style="color: ${mensaje.color}">${mensaje.userName}</p>
             <p class="date__text m-0">(${mensaje.date})</p>
           </span>
           <p class="message__text m-0">${mensaje.message}</p>
-        </article>`);
+        </li>`);
     });
+
+    darkMode();
   }, 1000);
+
+  darkMode();
 }
 
 // -----enviar mensajes-----
@@ -255,9 +260,15 @@ function verUser() {
     <p class="m-0">${userLocalStorage.userName}</p>
     
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li class="form-check form-switch p-0 d-flex align-items-center">
+        <input class="form-check-input mx-3 my-0" type="checkbox" id="flexSwitchCheckDefault">
+      </li>
       <li><a href="index.html" class="dropdown-item">Volver al inicio</a></li>
       <li><a id="cerrarSesion" href="index.html" class="dropdown-item link-danger">Cerrar sesión</a></li>
     </ul>`);
+
+  // para que el nombre de usuario cambie de color
+  darkMode();
 }
 
 // -----toma el dia actual para el mensaje-----

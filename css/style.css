@@ -41,16 +41,11 @@ main .chat__container {
   max-width: 100%;
   margin: auto;
   background-color: #eeeeee;
-  border-radius: 10px;
-}
-
-main .chat__container .messages__container {
-  width: fit-content;
+  border-radius: 5px;
 }
 
 main .chat__container .messages__container .message {
-  border-top: 1px solid;
-  margin-bottom: 1rem;
+  background-color: #eeeeee;
 }
 
 main .chat__container .messages__container .message .username__text {
@@ -124,5 +119,17 @@ footer {
   main .alert__sesion--message {
     bottom: 0%;
   }
+}
+
+.dark-mode-intenso {
+  background-color: #010409;
+}
+
+.dark-mode-suave {
+  background-color: #212529;
+}
+
+.dark-mode-light {
+  color: #ffffff;
 }
 /*# sourceMappingURL=style.css.map */

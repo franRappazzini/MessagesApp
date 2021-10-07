@@ -5,6 +5,7 @@ $(() => {
   newUser();
   iniciarSesion();
   verEstadisticas();
+  darkMode();
 
   // message.js
   showTenMessages();
@@ -302,6 +303,24 @@ function inicioSesionAutomatico() {
 
   if (email && password && userName && color) {
     window.location.href = "messages.html";
+  }
+}
+
+// -----dark mode segun horario-----
+function darkMode() {
+  let hora = new Date().getHours();
+
+  if (hora >= 19 && hora <= 6) {
+    $("body").addClass("dark-mode-intenso");
+    $(".card").addClass("dark-mode-suave");
+    $("p, h1, h2, h6, .labelForCheckbox, .labelForColorPicker").addClass(
+      "dark-mode-light"
+    );
+    $(".btn-outline-primary")
+      .removeClass("btn-outline-primary")
+      .addClass("btn-outline-light");
+
+    $(".message").css("background-color", "#212529");
   }
 }
 

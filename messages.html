@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="carpincho, capybara, mensajes, messages, app, aplication, aplicacion, mensajeria, javascript, js, html, css, sass, jquery, api, apis, ajax, json, jsonbin"
+    />
+    <meta
+      name="description"
+      content="JavaScript Message App | Aplicación básica de mensajes creada con JavaScript, HTML y CSS, por Francisco Rappazzini."
+    />
+    <meta name="robots" content="index,follow" />
+
     <title>Message App</title>
 
     <!-- imagen de al lado del title -->
@@ -53,7 +63,10 @@
             name="flexRadioDefault"
             id="allMessagesCheckbox"
           />
-          <label class="form-check-label" for="allMessagesCheckbox">
+          <label
+            class="form-check-label labelForCheckbox"
+            for="allMessagesCheckbox"
+          >
             Todos los mensajes
           </label>
         </div>
@@ -66,16 +79,19 @@
             id="tenMessagesCheckbox"
             checked
           />
-          <label class="form-check-label" for="tenMessagesCheckbox">
+          <label
+            class="form-check-label labelForCheckbox"
+            for="tenMessagesCheckbox"
+          >
             Ultimos 10 mensajes
           </label>
         </div>
       </section>
 
       <section class="chat__container">
-        <section class="messages__container">
+        <ul class="messages__container list-group">
           <!-- aca van los mensajes -->
-        </section>
+        </ul>
 
         <form class="send-message__form d-flex flex-column">
           <input
