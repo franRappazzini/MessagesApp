@@ -15,8 +15,8 @@ $(() => {
   clearLocalStorage();
 });
 
-const Users = "https://api.jsonbin.io/b/615b91fd4a82881d6c5ae0b4/latest";
-const Messages = "https://api.jsonbin.io/b/615c512aaa02be1d44548b30/latest";
+const Users = "https://api.jsonbin.io/b/615f46409548541c29bfcebe/latest";
+const Messages = "https://api.jsonbin.io/b/615f486baa02be1d44561307/latest";
 
 // vars para ingresar todos los datos obtenidos de los json
 let allUsers = [];
@@ -162,7 +162,7 @@ function newUser() {
       let concatUsers = allUsers.concat(newUser);
 
       $.ajax({
-        url: "https://api.jsonbin.io/b/615b91fd4a82881d6c5ae0b4",
+        url: "https://api.jsonbin.io/b/615f46409548541c29bfcebe",
         contentType: "application/json",
         method: "PUT",
         data: JSON.stringify(concatUsers),
@@ -264,7 +264,7 @@ function iniciarSesion() {
 function verEstadisticas() {
   // pruebo fetch*
   // usuarios
-  fetch("https://api.jsonbin.io/b/615b91fd4a82881d6c5ae0b4/latest")
+  fetch("https://api.jsonbin.io/b/615f46409548541c29bfcebe/latest")
     .then((res) => res.json())
     .then((data) => {
       let usuarios = data;
@@ -273,7 +273,7 @@ function verEstadisticas() {
     });
 
   // mensajes
-  fetch("https://api.jsonbin.io/b/615c512aaa02be1d44548b30/latest")
+  fetch("https://api.jsonbin.io/b/615f486baa02be1d44561307/latest")
     .then((res) => res.json())
     .then((data) => {
       let mensajes = data;
@@ -306,31 +306,13 @@ function inicioSesionAutomatico() {
   }
 }
 
-// -----dark mode segun horario-----
-function darkMode() {
-  let hora = new Date().getHours();
-
-  if (hora >= 19 && hora <= 6) {
-    $("body").addClass("dark-mode-intenso");
-    $(".card").addClass("dark-mode-suave");
-    $("p, h1, h2, h6, .labelForCheckbox, .labelForColorPicker").addClass(
-      "dark-mode-light"
-    );
-    $(".btn-outline-primary")
-      .removeClass("btn-outline-primary")
-      .addClass("btn-outline-light");
-
-    $(".message").css("background-color", "#212529");
-  }
-}
-
-// console.log(
-//   "%c Welcome to my App!!",
-//   `font-weight: bold;
-//     font-size: 50px;
-//     color: #FACA15;
-//     text-shadow: 3px 3px 0 #E64980,
-//                 6px 6px 0 #31C48D,
-//                 9px 9px 0 #FF8A4C,
-//                 12px 12px 0 #9061F9`
-// );
+console.log(
+  "%c Welcome to my App!!",
+  `font-weight: bold;
+    font-size: 50px;
+    color: #FACA15;
+    text-shadow: 3px 3px 0 #E64980,
+                6px 6px 0 #31C48D,
+                9px 9px 0 #FF8A4C,
+                12px 12px 0 #9061F9`
+);

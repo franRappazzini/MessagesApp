@@ -30,8 +30,8 @@ function showAllMessages() {
       </li>`);
   });
 
+  // para que cambie mantenga el modo
   darkMode();
-  console.log(allMessages);
 }
 
 // -----renderiza los ultimos 10 mensajes-----
@@ -93,7 +93,7 @@ function sendMessages() {
 
       // envio Message
       $.ajax({
-        url: "https://api.jsonbin.io/b/615c512aaa02be1d44548b30",
+        url: "https://api.jsonbin.io/b/615f486baa02be1d44561307",
         contentType: "application/json",
         method: "PUT",
         data: JSON.stringify(concatMessages),
@@ -261,13 +261,17 @@ function verUser() {
     
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
       <li class="form-check form-switch p-0 d-flex align-items-center">
-        <input class="form-check-input mx-3 my-0" type="checkbox" id="flexSwitchCheckDefault">
+        <input class="form-check-input mx-3 my-0" type="checkbox" id="checkboxDarkMode">
       </li>
       <li><a href="index.html" class="dropdown-item">Volver al inicio</a></li>
       <li><a id="cerrarSesion" href="index.html" class="dropdown-item link-danger">Cerrar sesión</a></li>
     </ul>`);
 
-  // para que el nombre de usuario cambie de color
+  // para activar/desactivar el dark mode
+  $("#checkboxDarkMode").change(() => {
+    $("#checkboxDarkMode").is(":checked") ? darkModeON() : darkModeOFF();
+  });
+
   darkMode();
 }
 
@@ -281,4 +285,48 @@ function today() {
 // -----limpia el localStorage al cerrar la sesion-----
 function clearLocalStorage() {
   $("#cerrarSesion").click(() => localStorage.clear());
+}
+
+// -----dark mode-----
+function darkMode() {
+  let darkModeLocalStorage = localStorage.getItem("DarkMode");
+
+  if (darkModeLocalStorage) {
+    $("#checkboxDarkMode").attr("checked", true);
+    darkModeON();
+  } else darkModeOFF();
+}
+
+// -----funciones del dark mode encendido-----
+function darkModeON() {
+  $("body").addClass("dark-mode-intenso");
+  $(".card").addClass("dark-mode-suave");
+  $("p, h1, h2, h6, .labelForCheckbox, .labelForColorPicker").addClass(
+    "dark-mode-light"
+  );
+  $(".btn-outline-primary")
+    .removeClass("btn-outline-primary")
+    .addClass("btn-outline-light");
+
+  $(".message").css("background-color", "#212529");
+
+  // guardo en el localStorage asi queda activado hasta que sea desactivado manualmente
+  localStorage.setItem("DarkMode", "checked");
+}
+
+// -----funciones del dark mode apagado-----
+function darkModeOFF() {
+  $("body").removeClass("dark-mode-intenso");
+  $(".card").removeClass("dark-mode-suave");
+  $("p, h1, h2, h6, .labelForCheckbox, .labelForColorPicker").removeClass(
+    "dark-mode-light"
+  );
+  $(".btn-outline-primary")
+    .removeClass("btn-outline-light")
+    .addClass("btn-outline-primary");
+
+  $(".message").css("background-color", "rgb(238, 238, 238)");
+
+  // lo elimino del localStorage
+  localStorage.removeItem("DarkMode");
 }
