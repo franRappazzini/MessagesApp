@@ -4,7 +4,7 @@ Aplicacion de mensajes basica creada con JavaScript (POO based), HTML y CSS.
 #### Skill utilizados:
 * jQuery
 * AJAX
-* Consumo de API
+* Consumo de API ([jsonbin.io](https://jsonbin.io/))
 * Sass
 * Bootstrap
 * BEM
