@@ -1,15 +1,15 @@
 // medoto ready
 $(() => {
   mainBtns();
-  getJSON();
+  // getJSON();
   newUser();
   iniciarSesion();
-  verEstadisticas();
+  // verEstadisticas();
   darkMode();
 
   // message.js
   showTenMessages();
-  sendMessages();
+  // sendMessages();
   verUser();
   checkboxMessages();
   clearLocalStorage();

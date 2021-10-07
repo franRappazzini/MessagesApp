@@ -261,7 +261,9 @@ function verUser() {
     
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
       <li class="form-check form-switch p-0 d-flex align-items-center">
-        <input class="form-check-input mx-3 my-0" type="checkbox" id="checkboxDarkMode">
+        <img src="../img/sun.svg" alt="sun-img" class="ms-3" />
+        <input class="form-check-input mx-1 my-0" type="checkbox" id="checkboxDarkMode">
+        <img src="../img/moon.svg" alt="moon-img" />
       </li>
       <li><a href="index.html" class="dropdown-item">Volver al inicio</a></li>
       <li><a id="cerrarSesion" href="index.html" class="dropdown-item link-danger">Cerrar sesión</a></li>
