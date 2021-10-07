@@ -1,15 +1,15 @@
 // medoto ready
 $(() => {
   mainBtns();
-  // getJSON();
+  getJSON();
   newUser();
   iniciarSesion();
-  // verEstadisticas();
+  verEstadisticas();
   darkMode();
 
   // message.js
   showTenMessages();
-  // sendMessages();
+  sendMessages();
   verUser();
   checkboxMessages();
   clearLocalStorage();
@@ -269,7 +269,9 @@ function verEstadisticas() {
     .then((data) => {
       let usuarios = data;
 
-      $(".card__number").append(usuarios.length);
+      // agrego por data value para que haga animacion de contador
+      $(".card__number").attr("data-value", `${usuarios.length}`);
+      counter();
     });
 
   // mensajes
@@ -278,7 +280,9 @@ function verEstadisticas() {
     .then((data) => {
       let mensajes = data;
 
-      $(".card__number--messages").append(mensajes.length);
+      // agrego por data value para que haga animacion de contador
+      $(".card__number--messages").attr("data-value", `${mensajes.length}`);
+      counter();
     });
 }
 
@@ -304,6 +308,26 @@ function inicioSesionAutomatico() {
   if (email && password && userName && color) {
     window.location.href = "messages.html";
   }
+}
+
+// -----animacion de contador para las estadisticas-----
+function counter() {
+  $(".counter").each(function () {
+    $(this)
+      .prop("Counter", 0)
+      .animate(
+        {
+          Counter: $(this).data("value"),
+        },
+        {
+          duration: 1000,
+          easing: "swing",
+          step: function () {
+            $(this).text(this.Counter.toFixed());
+          },
+        }
+      );
+  });
 }
 
 console.log(
