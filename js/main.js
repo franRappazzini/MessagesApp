@@ -340,3 +340,10 @@ console.log(
                 9px 9px 0 #FF8A4C,
                 12px 12px 0 #9061F9`
 );
+
+// scrollBarColor();
+function scrollBarColor() {
+  let userLocalStorage = JSON.parse(localStorage.getItem("UserApp"));
+
+  $("body::-webkit-scrollbar-thumb").css("background-color", "red");
+}

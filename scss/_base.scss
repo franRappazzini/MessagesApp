@@ -148,12 +148,25 @@ footer {
 }
 
 .dark-mode-intenso {
-  background-color: #010409;
+  background-color: #131c21;
 }
+
 .dark-mode-suave {
-  background-color: #212529;
+  background-color: #262d31;
 }
 
 .dark-mode-light {
   color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: red;
+  border-radius: 5px;
 }
