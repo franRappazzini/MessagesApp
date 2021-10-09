@@ -281,8 +281,8 @@ function verEstadisticas() {
     .then((data) => {
       let mensajes = data;
 
-      // agrego por data value para que haga animacion de contador
-      $(".card__number--messages").attr("data-value", `${mensajes.length}`);
+      // agrego por data value para que haga animacion de contador (+1 por el mensaje por defecto mio)
+      $(".card__number--messages").attr("data-value", `${mensajes.length + 1}`);
       counter();
     });
 }
