@@ -132,18 +132,4 @@ footer {
 .dark-mode-light {
   color: #ffffff;
 }
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  border-radius: 5px;
-  background-color: transparent;
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: red;
-  border-radius: 5px;
-}
 /*# sourceMappingURL=style.css.map */

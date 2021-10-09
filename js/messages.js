@@ -93,7 +93,7 @@ function sendMessages() {
 
       // envio Message
       $.ajax({
-        url: "https://api.jsonbin.io/b/615f486baa02be1d44561307",
+        url: "https://api.jsonbin.io/b/6160dde5aa02be1d4456c763",
         contentType: "application/json",
         method: "PUT",
         data: JSON.stringify(concatMessages),
@@ -307,7 +307,7 @@ function darkMode() {
 function darkModeON() {
   $("body").addClass("dark-mode-intenso");
   $(".card").addClass("dark-mode-suave");
-  $("p, h1, h2, h6, .labelForCheckbox, .labelForColorPicker").addClass(
+  $("p, h1, h2, h6, .labelForCheckbox, .labelForColorPicker, .bi-eye").addClass(
     "dark-mode-light"
   );
   $(".btn-outline-primary")
@@ -324,9 +324,9 @@ function darkModeON() {
 function darkModeOFF() {
   $("body").removeClass("dark-mode-intenso");
   $(".card").removeClass("dark-mode-suave");
-  $("p, h1, h2, h6, .labelForCheckbox, .labelForColorPicker").removeClass(
-    "dark-mode-light"
-  );
+  $(
+    "p, h1, h2, h6, .labelForCheckbox, .labelForColorPicker, .bi-eye"
+  ).removeClass("dark-mode-light");
   $(".btn-outline-primary")
     .removeClass("btn-outline-light")
     .addClass("btn-outline-primary");

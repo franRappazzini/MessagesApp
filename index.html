@@ -119,7 +119,7 @@
               autofocus
               required
             />
-            <label for="nameRegistro">Nombre</label>
+            <label class="ms-2" for="nameRegistro">Nombre</label>
           </div>
 
           <div class="form-floating mb-3 col-md-6 col-12">
@@ -130,7 +130,7 @@
               placeholder="Apellido"
               required
             />
-            <label for="lastNameRegistro">Apellido</label>
+            <label class="ms-2" for="lastNameRegistro">Apellido</label>
           </div>
 
           <div class="form-floating mb-3 col-12">
@@ -142,7 +142,7 @@
               minlength="3"
               required
             />
-            <label for="userNameRegistro">Nombre de usuario</label>
+            <label class="ms-2" for="userNameRegistro">Nombre de usuario</label>
           </div>
 
           <div class="form-floating mb-3 col-12">
@@ -153,10 +153,10 @@
               placeholder="Email"
               required
             />
-            <label for="emailRegistro">Email</label>
+            <label class="ms-2" for="emailRegistro">Email</label>
           </div>
 
-          <div class="form-floating mb-3 col-12">
+          <div class="form-floating mb-3 col-12 d-flex">
             <input
               type="password"
               class="form-control"
@@ -165,9 +165,35 @@
               minlength="6"
               required
             />
-            <label for="passwordRegistro"
+            <label class="ms-2" for="passwordRegistro"
               >Contraseña (evite poner una real)</label
             >
+
+            <div class="d-flex flex-column justify-content-center ms-2">
+              <input
+                class="form-check-input mb-1"
+                type="checkbox"
+                id="btnShowPassword"
+                value=""
+                aria-label="..."
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-eye"
+                viewBox="0 0 16 16"
+                id="bi-eye"
+              >
+                <path
+                  d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"
+                />
+                <path
+                  d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                />
+              </svg>
+            </div>
           </div>
 
           <div class="colorpicker d-flex flex-column align-items-center mb-3">
@@ -202,7 +228,7 @@
               autofocus
               autocomplete="email"
             />
-            <label for="emailIngreso">Email</label>
+            <label class="ms-2" for="emailIngreso">Email</label>
           </div>
 
           <div class="form-floating mb-3 col-12">
@@ -212,7 +238,7 @@
               id="passwordIngreso"
               placeholder="Contraseña"
             />
-            <label for="passwordIngreso">Contraseña</label>
+            <label class="ms-2" for="passwordIngreso">Contraseña</label>
           </div>
 
           <button

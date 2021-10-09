@@ -1,22 +1,23 @@
 // medoto ready
 $(() => {
   mainBtns();
-  getJSON();
+  // getJSON();
   newUser();
   iniciarSesion();
-  verEstadisticas();
-  darkMode();
+  // verEstadisticas();
+  showPassword();
 
   // message.js
-  showTenMessages();
-  sendMessages();
+  // showTenMessages();
+  // sendMessages();
   verUser();
   checkboxMessages();
   clearLocalStorage();
+  darkMode();
 });
 
-const Users = "https://api.jsonbin.io/b/615f46409548541c29bfcebe/latest";
-const Messages = "https://api.jsonbin.io/b/615f486baa02be1d44561307/latest";
+const Users = "https://api.jsonbin.io/b/6160de11aa02be1d4456c76f/latest";
+const Messages = "https://api.jsonbin.io/b/6160dde5aa02be1d4456c763/latest";
 
 // vars para ingresar todos los datos obtenidos de los json
 let allUsers = [];
@@ -162,7 +163,7 @@ function newUser() {
       let concatUsers = allUsers.concat(newUser);
 
       $.ajax({
-        url: "https://api.jsonbin.io/b/615f46409548541c29bfcebe",
+        url: "https://api.jsonbin.io/b/6160de11aa02be1d4456c76f",
         contentType: "application/json",
         method: "PUT",
         data: JSON.stringify(concatUsers),
@@ -264,7 +265,7 @@ function iniciarSesion() {
 function verEstadisticas() {
   // pruebo fetch*
   // usuarios
-  fetch("https://api.jsonbin.io/b/615f46409548541c29bfcebe/latest")
+  fetch("https://api.jsonbin.io/b/6160de11aa02be1d4456c76f/latest")
     .then((res) => res.json())
     .then((data) => {
       let usuarios = data;
@@ -275,7 +276,7 @@ function verEstadisticas() {
     });
 
   // mensajes
-  fetch("https://api.jsonbin.io/b/615f486baa02be1d44561307/latest")
+  fetch("https://api.jsonbin.io/b/6160dde5aa02be1d4456c763/latest")
     .then((res) => res.json())
     .then((data) => {
       let mensajes = data;
@@ -330,6 +331,15 @@ function counter() {
   });
 }
 
+// -----muestra la contrasena al registrarse-----
+function showPassword() {
+  $("#btnShowPassword").change(() => {
+    $("#btnShowPassword").is(":checked")
+      ? $("#passwordRegistro").attr("type", "text")
+      : $("#passwordRegistro").attr("type", "password");
+  });
+}
+
 console.log(
   "%c Welcome to my App!!",
   `font-weight: bold;
@@ -340,10 +350,3 @@ console.log(
                 9px 9px 0 #FF8A4C,
                 12px 12px 0 #9061F9`
 );
-
-// scrollBarColor();
-function scrollBarColor() {
-  let userLocalStorage = JSON.parse(localStorage.getItem("UserApp"));
-
-  $("body::-webkit-scrollbar-thumb").css("background-color", "red");
-}
