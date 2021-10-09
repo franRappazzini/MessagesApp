@@ -1,15 +1,15 @@
 // medoto ready
 $(() => {
   mainBtns();
-  // getJSON();
+  getJSON();
   newUser();
   iniciarSesion();
-  // verEstadisticas();
+  verEstadisticas();
   showPassword();
 
   // message.js
-  // showTenMessages();
-  // sendMessages();
+  showTenMessages();
+  sendMessages();
   verUser();
   checkboxMessages();
   clearLocalStorage();
@@ -303,8 +303,6 @@ function inicioSesionAutomatico() {
   console.log(userLocalStorage);
 
   let { email, password, userName, color } = userLocalStorage;
-
-  console.log(email, password, userName, color);
 
   if (email && password && userName && color) {
     window.location.href = "messages.html";

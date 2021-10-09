@@ -30,7 +30,7 @@ function showAllMessages() {
       </li>`);
   });
 
-  // para que cambie mantenga el modo
+  // para que cuando cambie mantenga el modo
   darkMode();
 }
 
@@ -45,6 +45,7 @@ function showTenMessages() {
       <p class="message__text m-0">Hola, bienvenido a mi app!</p>
     </li>`);
 
+  // setTimeout para que le de tiempo a hacer el get
   setTimeout(() => {
     let ultimosDiezMensajes = [...allMessages].splice(-10);
 
