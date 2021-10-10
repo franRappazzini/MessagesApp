@@ -94,7 +94,7 @@ function sendMessages() {
 
       // envio Message
       $.ajax({
-        url: "https://api.jsonbin.io/b/6160dde5aa02be1d4456c763",
+        url: "https://api.jsonbin.io/b/61632f3faa02be1d445775a0",
         contentType: "application/json",
         method: "PUT",
         data: JSON.stringify(concatMessages),

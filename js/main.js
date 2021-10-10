@@ -16,8 +16,8 @@ $(() => {
   darkMode();
 });
 
-const Users = "https://api.jsonbin.io/b/6160de11aa02be1d4456c76f/latest";
-const Messages = "https://api.jsonbin.io/b/6160dde5aa02be1d4456c763/latest";
+const Users = "https://api.jsonbin.io/b/61632ec09548541c29c13327/latest";
+const Messages = "https://api.jsonbin.io/b/61632f3faa02be1d445775a0/latest";
 
 // vars para ingresar todos los datos obtenidos de los json
 let allUsers = [];
@@ -163,7 +163,7 @@ function newUser() {
       let concatUsers = allUsers.concat(newUser);
 
       $.ajax({
-        url: "https://api.jsonbin.io/b/6160de11aa02be1d4456c76f",
+        url: "https://api.jsonbin.io/b/61632ec09548541c29c13327",
         contentType: "application/json",
         method: "PUT",
         data: JSON.stringify(concatUsers),
@@ -265,7 +265,7 @@ function iniciarSesion() {
 function verEstadisticas() {
   // pruebo fetch*
   // usuarios
-  fetch("https://api.jsonbin.io/b/6160de11aa02be1d4456c76f/latest")
+  fetch("https://api.jsonbin.io/b/61632ec09548541c29c13327/latest")
     .then((res) => res.json())
     .then((data) => {
       let usuarios = data;
@@ -276,7 +276,7 @@ function verEstadisticas() {
     });
 
   // mensajes
-  fetch("https://api.jsonbin.io/b/6160dde5aa02be1d4456c763/latest")
+  fetch("https://api.jsonbin.io/b/61632f3faa02be1d445775a0/latest")
     .then((res) => res.json())
     .then((data) => {
       let mensajes = data;
