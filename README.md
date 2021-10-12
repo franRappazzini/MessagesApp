@@ -1,5 +1,5 @@
 # JavaScript Message App
-Aplicacion de mensajes basica creada con JavaScript (POO based), HTML y CSS.
+Aplicacion responsive de mensajes basica creada con JavaScript (POO based), HTML y CSS.
 
 #### Skill utilizados:
 * jQuery
